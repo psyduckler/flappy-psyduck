@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Flappy Psyduck 🦆 | Play the Psychic Bird Game</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Flappy Psyduck - A retro pixel art game featuring everyone's favorite confused yellow duck! Navigate through psychic headache waves and evolve into Golduck!">
+    <meta name="keywords" content="Flappy Bird, Psyduck, Pokemon, Pixel Art, Retro Game, Browser Game, HTML5 Game">
+    <meta name="author" content="Psyduckler">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://psyduckler.github.io/flappy-psyduck/">
+    <meta property="og:title" content="Flappy Psyduck 🦆 | Play the Psychic Bird Game">
+    <meta property="og:description" content="Help Psyduck navigate through psychic headache waves in this retro pixel art adventure! Evolve into Golduck and become invincible!">
+    <meta property="og:image" content="https://psyduckler.github.io/flappy-psyduck/icons/og-image.png">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://psyduckler.github.io/flappy-psyduck/">
+    <meta property="twitter:title" content="Flappy Psyduck 🦆 | Play the Psychic Bird Game">
+    <meta property="twitter:description" content="Help Psyduck navigate through psychic headache waves in this retro pixel art adventure! Evolve into Golduck and become invincible!">
+    <meta property="twitter:image" content="https://psyduckler.github.io/flappy-psyduck/icons/og-image.png">
+    
+    <!-- PWA Meta Tags -->
+    <meta name="theme-color" content="#FFD700">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Flappy Psyduck">
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Icons -->
+    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23FFD700'/><circle cx='10' cy='12' r='2' fill='%23000'/><circle cx='22' cy='12' r='2' fill='%23000'/><ellipse cx='16' cy='20' rx='6' ry='4' fill='%23FFA500'/><rect x='14' y='16' width='4' height='6' fill='%23FFA500'/></svg>">
+    <link rel="apple-touch-icon" sizes="192x192" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect width='192' height='192' fill='%23FFD700'/><circle cx='60' cy='72' r='12' fill='%23000'/><circle cx='132' cy='72' r='12' fill='%23000'/><ellipse cx='96' cy='120' rx='36' ry='24' fill='%23FFA500'/><rect x='84' y='96' width='24' height='36' fill='%23FFA500'/></svg>">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Game Container -->
+    <div id="gameContainer">
+        <canvas id="gameCanvas"></canvas>
+        
+        <!-- UI Overlays -->
+        <div id="titleScreen" class="screen">
+            <div class="logo">
+                <h1>Flappy Psyduck</h1>
+                <p class="subtitle">🦆 Psychic Flying Adventure</p>
+            </div>
+            <div class="psyduck-sprite"></div>
+            <div class="start-prompt">
+                <p><span class="desktop-text">Press SPACE to Start</span><span class="mobile-text">Tap to Start</span></p>
+            </div>
+        </div>
+        
+        <div id="gameScreen" class="screen">
+            <div id="gameHUD">
+                <div id="score">0</div>
+                <div id="evolutionIndicator" class="hidden">GOLDUCK MODE!</div>
+            </div>
+        </div>
+        
+        <div id="gameOverScreen" class="screen hidden">
+            <div class="game-over-content">
+                <h2>Game Over!</h2>
+                <div class="scores">
+                    <p>Score: <span id="finalScore">0</span></p>
+                    <p>Best: <span id="bestScore">0</span></p>
+                </div>
+                <div class="buttons">
+                    <button id="playAgainBtn" class="game-btn">Play Again</button>
+                    <button id="shareScoreBtn" class="game-btn">Share Score</button>
+                </div>
+            </div>
+        </div>
+        
+        <div id="tutorialOverlay" class="overlay hidden">
+            <div class="tutorial-content">
+                <h3>How to Play</h3>
+                <p><span class="desktop-text">Press SPACE</span><span class="mobile-text">Tap</span> to make Psyduck flap!</p>
+                <p>Avoid the psychic headache waves</p>
+                <p>Collect power-ups to evolve into Golduck!</p>
+                <button id="closeTutorialBtn" class="game-btn">Got it!</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- JavaScript -->
+    <script src="js/sprites.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/game.js"></script>
+</body>
+</html>
