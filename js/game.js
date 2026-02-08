@@ -354,7 +354,7 @@ class FlappyPsyduckGame {
 
     // Create a new obstacle (psychic wave)
     createObstacle() {
-        const gapHeight = 150;
+        const gapHeight = 200;
         const minObstacleHeight = 50;
         const maxObstacleHeight = this.gameHeight - gapHeight - minObstacleHeight;
         
